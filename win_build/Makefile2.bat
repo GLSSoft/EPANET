@@ -1,7 +1,7 @@
 rem : rem : Compilation script (Visual Studio 2017/2019 with CMAKE)
 
 rem : set the path to CMAKE
-SET CMAKE_PATH=cmake.exe 
+SET CMAKE_PATH="C:\Program Files\CMake\bin\cmake.exe"
 
 SET Build_PATH=%CD%
 
@@ -40,3 +40,9 @@ XCOPY "%COMPILE_PATH_TMP%lib\Release\epanet2.lib" "%COMPILE_PATH_WIN64%epanet2.l
 CD "%Build_PATH%"
 RMDIR /s /q "%COMPILE_PATH_TMP%"
 
+pause Ready to copy to Wadiso 6 directories?
+
+xcopy "%COMPILE_PATH_WIN32%epanet2.dll*" "%ProgramFiles(x86)%\GLS\Wadiso6\Epanet2_2.dll" /y
+xcopy "%COMPILE_PATH_WIN64%epanet2.dll*" "%ProgramW6432%\GLS\Wadiso6\Epanet2_2.dll" /y
+
+pause
